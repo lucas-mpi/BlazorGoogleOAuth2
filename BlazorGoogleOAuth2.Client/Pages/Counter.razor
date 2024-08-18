@@ -1,0 +1,27 @@
+﻿@page "/counter"
+@rendermode InteractiveWebAssembly
+
+
+<AuthorizeView>
+    <Authorized>
+        <PageTitle>Counter</PageTitle>
+
+        <h1>Counter</h1>
+
+        <p role="status">Current count: @currentCount</p>
+
+        <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    </Authorized>
+    <NotAuthorized>
+        <p>Você precisa estar conectado para usar o contador.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
